@@ -1,0 +1,21 @@
+// Token: 0x0600E881 RID: 59521 RVA: 0x003E269C File Offset: 0x003E089C
+ public void S()
+ {
+  if (client.DataPool.CurrentMap != null && client.DataPool.AllPlayers != null)
+  {
+   foreach (client.data.PlayerData playerData in client.DataPool.AllPlayers)
+   {
+    Antiknock player = ClientManager.GetPlayer(playerData.roleid);
+    Antiknock player2 = ClientManager.GetPlayer(client.DataPool.HeroID);
+    if (player != null && playerData.side != client.DataPool.HeroSide && playerData.Alive && client.DataPool.IsHeroAlive && client.DataPool.IsAssailable(playerData.roleid))
+    {
+     player2.transform.position = new UnityEngine.Vector3(player.transform.position.x, player.transform.position.x, player.transform.position.z);
+    }
+    else
+    {
+     player2.transform.position = player.transform.position;
+    }
+   }
+  }
+ }
+ //this is a android code just a simple
